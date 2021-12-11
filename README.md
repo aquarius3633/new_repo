@@ -4,4 +4,4 @@ github learning day 1
 - learning github repository pull/push 
 - learning git command on local machine
 - learning how to resolve git commit conflicts
-- practice git and github common commands
+- learning c++ while using github and git to practice
