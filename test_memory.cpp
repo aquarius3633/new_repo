@@ -20,7 +20,7 @@ int main() {
        cout << "Enter your number: ";
        cin >> p[n]; //using pointer variable to sign values to the block of memory which created previously on heap
    };
-    for(n = 0; n < i; n++)
+    for(n = 0; n < 6; n++)
         cout << p[n] << endl; //print out the value on screen
 
     delete[] p; //reemove and clear the memory from heap
