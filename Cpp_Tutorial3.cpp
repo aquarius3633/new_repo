@@ -7,9 +7,9 @@
 using namespace std;
 
 int main(){
-    int c;
+    
     int nc;
-    while ((c = getchar())!= EOF){
+    while (getchar()!= EOF){
         nc++;
     };
     cout << nc;
