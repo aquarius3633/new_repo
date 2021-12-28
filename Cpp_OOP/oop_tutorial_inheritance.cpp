@@ -49,10 +49,12 @@ public:
     int getSalary(){
         return Salary;
     }
-    Employee(string name, string company, int age){
+    Employee(string name, string company, int age, int numOfYearsWorked, int salary){
         Name = name;
         Company = company;
         Age = age;
+        NumOfYearsWorked = numOfYearsWorked;
+        Salary = salary;
     }
     void introducesEmployee(){
         cout << Name << " is currently working in " << Company << " and the age is " << Age << endl;
@@ -72,11 +74,26 @@ public:
     }
 };
 
+//create derived class Developer which inheritant from base class/parent class Employee
+class Developer:public Employee {//"public" here make derived class Developer
+public://C++ need to explicitly declare the public access modifier. Because the default class member are private
+    string ProgramningLanguages;
+    Developer(string name, string company, int age, int numOfYearsWorked, int salary, string progammingLanguages)
+        :Employee(name, company, age, numOfYearsWorked, salary)
+    {
+        ProgramningLanguages = progammingLanguages;
+    }
+    void FixBug(){
+        cout << getName() << " is good at fixing bug by using " << ProgramningLanguages << endl;
+    }
+
+};
+
 int main()
 {
 
-    Employee e1 = Employee("Smith John", "IBM", 25);
-    Employee e2 = Employee("West Nickel", "Clourfare", 28);
+    Employee e1 = Employee("Smith John", "IBM", 25, 8, 45000);
+    Employee e2 = Employee("West Nickel", "Clourfare", 28, 7, 65000);
     e1.introducesEmployee();
     e2.introducesEmployee();
     e1.setAge(16);
@@ -91,8 +108,14 @@ int main()
     e1.setSalary(45000);//encapsulation method for hiding data from outside user access/modify private data
     e2.setSalary(60000);
 
-    e1.ApplyPersonalLoan();//abstraction class
+    e1.ApplyPersonalLoan();//invoke abstraction class
     e2.ApplyPersonalLoan();
 
+    Developer d1 = Developer("Sam", "YouTuber", 26, 10, 80000, "C++");//initialise object from derived class Developer
+    
+    d1.FixBug();//invoke class method within derived class
+    d1.introducesEmployee();//invoke class method from base class
+    d1.AskForPromotion();//invoke abstruction class method from base class
+    d1.ApplyPersonalLoan();//invoke abstruction class method from base class
 
 }
